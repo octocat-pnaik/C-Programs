@@ -1,0 +1,22 @@
+Note: Code is tested on Ubuntu 22.04 LTS version - 64-bit operating system
+Steps to run the project:
+1) Execute the make command.
+2) Process Injection Attack using Ptrace System Call
+2.1) Open the terminal
+2.2) Set the value of ptrace scope in the Linux Yama module to 0, using the following command.
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+2.3) Run target.c using the following command.
+./target
+2.4) Now open another terminal, and run the processInjection.c using the following command.
+./processInjection <%VictimProcessId%>
+2.5) After successful execution of processInjection.c, go back to the terminal where the target program is running.
+You will be given the shell access to exploit the system resources.
+3) Process Injection Attack using LD_PRELOAD environment variable
+3.1) Open the terminal
+3.2) Run the following command to add the path of the shared library ld-processInjection.so to the LD PRELOAD environment variable.
+export LD_PRELOAD=/<%path of folder that contains ld-processInjection.so%>/ld-processInjection.so
+3.3) Run the legitimate program called target.c using the below command.
+./target
+Execution of the target program will provide you the shell access.
+
+
