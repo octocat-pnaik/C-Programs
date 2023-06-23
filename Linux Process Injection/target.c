@@ -11,7 +11,7 @@ int main()
     // Declarations
     int counter = 0;
 
-    puts("** CSI-5500-OS Project-Process Injection Exploitation & Prevention/Detection Techniques in Linux **\n");
+    puts("** Process Injection Exploitation & Prevention/Detection Techniques in Linux **\n");
     printf("My process id is %d.\n", getpid());
 
     while(1)
